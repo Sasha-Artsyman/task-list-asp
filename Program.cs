@@ -1,4 +1,4 @@
-// начальные данные
+// РЅР°С‡Р°Р»СЊРЅС‹Рµ РґР°РЅРЅС‹Рµ
 List<AllTasks> tasks = new List<AllTasks>
 {
     new() { Id = Guid.NewGuid().ToString(), Title = "Complete your to-do", Autor = "Admin", DateOfCreation = "01.01.2022 11:00:00", Description = "Complete your to-do list for today", Done = false}
