@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="header">
-        <div id="title" class="bblock"><a>Task list</a></div>
+        <div id="title" class="bblock"><a><b>Task list</b></a></div>
         <div id="add" class="bblock"><a>+ Add</a></div>
     </div>
     <form name="taskForm">
@@ -41,8 +41,22 @@
         function row(task) {
 
             var div = document.createElement("div");
-            div.setAttribute("class", "element");
-            div.textContent = task.title;
+            if (task.done == false) {
+                div.setAttribute("class", "elementFalse");
+            }
+            else {
+                div.setAttribute("class", "elementTrue");
+            }
+
+            var divTitle = document.createElement("div");
+            divTitle.setAttribute("class", "elementTitle");
+            divTitle.textContent = task.title;
+            div.appendChild(divTitle);
+
+            var divDescription = document.createElement("div");
+            divDescription.setAttribute("class", "elementDescription");
+            divDescription.textContent = task.description;
+            div.appendChild(divDescription);
 
             return div;
         }
