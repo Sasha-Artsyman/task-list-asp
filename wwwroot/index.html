@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Task list</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/site.css" type="text/css">
+</head>
+<body>
+    <div id="header">
+        <div id="title" class="bblock"><a>Task list</a></div>
+        <div id="add" class="bblock"><a>+ Add</a></div>
+    </div>
+    <form name="taskForm">
+        <div id="table"></div>
+    </form>
+
+    <script>
+        // получить все записи
+        async function getTasks() {
+            // отправляет запрос и получаем ответ
+            const response = await fetch("/api/tasks", {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+            // если запрос прошел нормально
+            if (response.ok === true) {
+                // получаем данные
+                const tasks = await response.json();
+                var rows = document.querySelector("#table");
+                // добавляем полученные элементы в таблицу
+                rows.innerHTML = "";
+                tasks.forEach(task => {
+                    rows.appendChild(row(task));
+                })
+            }
+        }
+
+        // создание строки для таблицы
+        function row(task) {
+
+            var div = document.createElement("div");
+            div.setAttribute("class", "element");
+            div.textContent = task.title;
+
+            return div;
+        }
+
+        // загрузка списка
+        getTasks();
+    </script>
+</body>
+</html>
