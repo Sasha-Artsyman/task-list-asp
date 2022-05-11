@@ -36,3 +36,49 @@
 body {
     background-color: #20292f;
 }
+
+#table {
+    margin-top: 8%;
+    margin-right: 8%;
+    margin-left: 8%;
+}
+
+.elementFalse, .elementTrue {
+    border-radius: 8px;
+    margin-top: 2%;
+    box-shadow: 0 0 12px #383c47;
+    padding: 2%;
+}
+
+.elementTitle {
+    font-size: 22px;
+}
+
+.elementDescription {
+    font-size: 16px;
+    margin-top: 2%;
+}
+
+.elementFalse {
+    background-color: #eee;
+}
+
+    .elementFalse .elementTitle {
+        color: #383c47;
+    }
+
+    .elementFalse .elementDescription {
+        color: #878b8e;
+    }
+
+.elementTrue {
+    background-color: #878b8e;
+}
+
+    .elementTrue .elementTitle {
+        color: #eee;
+    }
+
+    .elementTrue .elementDescription {
+        color: #bbb;
+    }
