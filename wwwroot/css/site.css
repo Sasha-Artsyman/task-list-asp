@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+    font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;
+}
+
+.bblock {
+    float: left;
+    line-height: 48px;
+    font-size: 24px;
+    color: white;
+    width: 148px;
+    margin: 8px;
+    text-align: center;
+}
+
+    .bblock:hover {
+        border-radius: 8px;
+        background: #00a7af;
+    }
+
+#header {
+    padding-left: 16px;
+    height: 64px;
+    background: #383c47;
+    box-shadow: 0 0 12px #383c47;
+}
+
+body {
+    background-color: #20292f;
+}
