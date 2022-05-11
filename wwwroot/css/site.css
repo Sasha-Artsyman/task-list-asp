@@ -5,22 +5,30 @@
 
 .bblock {
     float: left;
-    line-height: 48px;
+    line-height: 42px;
     font-size: 24px;
     color: white;
-    width: 148px;
-    margin: 8px;
+    width: 124px;
+    margin: 16px;
     text-align: center;
 }
 
-    .bblock:hover {
-        border-radius: 8px;
-        background: #00a7af;
+    .bblock a {
+        color: #eee !important;
     }
 
+    .bblock:hover {
+        border-radius: 8px;
+        box-shadow: 0 0 12px #20292f;
+    }
+
+        .bblock:hover a {
+            color: #00a7af !important;
+        }
+
 #header {
-    padding-left: 16px;
-    height: 64px;
+    padding-left: 24px;
+    height: 74px;
     background: #383c47;
     box-shadow: 0 0 12px #383c47;
 }
