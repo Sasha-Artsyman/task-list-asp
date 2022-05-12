@@ -4,6 +4,8 @@
 }
 
 .bblock {
+    background-color: #383c47;
+    border-radius: 8px;
     float: left;
     line-height: 42px;
     font-size: 24px;
@@ -11,10 +13,12 @@
     width: 124px;
     margin: 16px;
     text-align: center;
+    border: 0px;
 }
 
     .bblock a {
         color: #eee !important;
+        text-decoration: none;
     }
 
     .bblock:hover {
@@ -43,12 +47,49 @@ body {
     margin-left: 8%;
 }
 
-.elementFalse, .elementTrue {
-    border-radius: 8px;
-    margin-top: 28px;
-    box-shadow: 0 0 12px #383c47;
-    padding: 16px;
+.form-control:focus, #input:focus {
+    box-shadow: 0 0 12px #bbb !important;
+    border: 0px;
 }
+
+#inputForm {
+    margin-top: 8%;
+    margin-right: 24%;
+    margin-left: 24%;
+    color: #eee;
+}
+
+#input, #inputTextarea {
+    border-radius: 8px;
+    margin-top: 4px;
+    box-shadow: 0 0 12px #383c47;
+    padding: 8px;
+    color: #383c47;
+    background-color: #eee;
+    border: 0px;
+}
+
+#inputTextarea {
+    height: 200px;
+}
+
+#mainText {
+    margin-bottom: 48px;
+}
+
+#otherText {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+    .elementFalse, .elementTrue {
+        border-radius: 8px;
+        margin-top: 28px;
+        box-shadow: 0 0 12px #383c47;
+        padding: 16px;
+    }
 
 .elementTitle {
     font-size: 22px;
