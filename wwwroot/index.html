@@ -37,6 +37,23 @@
             }
         }
 
+        // удаление записи
+        async function deleteTask(id) {
+            const response = await fetch("/api/tasks/" + id, {
+                method: "DELETE",
+                headers: { "Accept": "application/json" }
+            });
+            if (response.ok === true) {
+                const tasks = await response.json();
+                var thisTask = document.getElementById(tasks.id);
+                thisTask.remove();
+            }
+            else {
+                const error = await response.json();
+                console.log(error.message);
+            }
+        }
+
         // создание строки для таблицы
         function row(task) {
 
@@ -47,6 +64,7 @@
             else {
                 div.setAttribute("class", "elementTrue");
             }
+            div.setAttribute("id", task.id);
 
             var divTitle = document.createElement("div");
             divTitle.setAttribute("class", "elementTitle");
@@ -58,12 +76,12 @@
             divDescription.textContent = task.description;
             div.appendChild(divDescription);
 
-            var divDelete = document.createElement("div");
+            var divDelete = document.createElement("button");
             divDelete.setAttribute("class", "elementdivDelete");
             divDelete.textContent = "Delete";
             divDelete.addEventListener("click", e => {
                 e.preventDefault();
-                deleteProduct(product.id);
+                deleteTask(task.id);
             });
             div.appendChild(divDelete);
 
