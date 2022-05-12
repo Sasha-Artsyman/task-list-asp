@@ -22,6 +22,16 @@ app.MapGet("/api/tasks/{id}", (string id) =>
     return Results.Json(task);
 });
 
+app.MapDelete("/api/tasks/{id}", (string id) =>
+{
+    AllTasks? task = tasks.FirstOrDefault(t => t.Id == id);
+
+    if (task == null) return Results.NotFound(new { message = "Task not found!" });
+
+    tasks.Remove(task);
+    return Results.Json(task);
+});
+
 app.Run();
 
 public class AllTasks
