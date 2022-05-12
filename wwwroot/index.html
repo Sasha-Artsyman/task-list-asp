@@ -58,6 +58,15 @@
             divDescription.textContent = task.description;
             div.appendChild(divDescription);
 
+            var divDelete = document.createElement("div");
+            divDelete.setAttribute("class", "elementdivDelete");
+            divDelete.textContent = "Delete";
+            divDelete.addEventListener("click", e => {
+                e.preventDefault();
+                deleteProduct(product.id);
+            });
+            div.appendChild(divDelete);
+
             return div;
         }
 
