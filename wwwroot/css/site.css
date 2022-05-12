@@ -39,15 +39,15 @@ body {
 
 #table {
     margin-top: 8%;
-    margin-right: 8%;
+    margin-right: 16%;
     margin-left: 8%;
 }
 
 .elementFalse, .elementTrue {
     border-radius: 8px;
-    margin-top: 2%;
+    margin-top: 28px;
     box-shadow: 0 0 12px #383c47;
-    padding: 2%;
+    padding: 16px;
 }
 
 .elementTitle {
@@ -82,3 +82,12 @@ body {
     .elementTrue .elementDescription {
         color: #bbb;
     }
+
+.elementdivDelete {
+    border-radius: 24px;
+    padding: 4px 16px;
+    background-color: #00a7af;
+    position: absolute;
+    left: 80%;
+    box-shadow: 0 0 12px #383c47;
+}
