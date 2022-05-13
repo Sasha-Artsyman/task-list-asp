@@ -7,7 +7,7 @@
     background-color: #383c47;
     border-radius: 8px;
     float: left;
-    line-height: 24px;
+    line-height: 42px;
     font-size: 24px;
     color: white;
     width: 124px;
@@ -16,11 +16,9 @@
     border: 0px;
 }
 
-    .bblock p {
+    .bblock a {
         color: #eee !important;
         text-decoration: none;
-        margin-top: 8px;
-        margin-bottom: 8px;
     }
 
     .bblock:hover {
@@ -28,7 +26,7 @@
         box-shadow: 0 0 12px #20292f;
     }
 
-        .bblock:hover p {
+        .bblock:hover a {
             color: #00a7af !important;
         }
 
