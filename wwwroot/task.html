@@ -9,8 +9,8 @@
 </head>
 <body>
     <div id="header">
-        <button id="title" class="bblock"><a href="./index.html"><b>Task list</b></a></button>
-        <button id="add" class="bblock"><a href="./task.html">+ Add</a></button>
+        <button id="title" class="bblock"><p href="./index.html"><b>Task list</b></p></button>
+        <button id="add" class="bblock"><p href="./task.html">+ Add</p></button>
     </div>
     <form name="taskForm">
         <div id="inputForm">
@@ -28,10 +28,55 @@
                     <input id="input" class="form-control" name="autor" placeholder="Autor" />
                 </div>
                 <div class="mb-3">
-                    <input id="input" class="form-control" name="dateOfCreation" placeholder="Date" />
+                    <input id="input" type="date" class="form-control" name="dateOfCreation" placeholder="Date" />
                 </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="elementSave">Save</button>
             </div>
         </div>
     </form>
+    <script>
+        // отправка формы
+        document.forms["taskForm"].addEventListener("submit", e => {
+            e.preventDefault();
+            const form = document.forms["taskForm"];
+            const id = form.elements["id"].value;
+            const title = form.elements["title"].value;
+            const description = form.elements["quantity"].description;
+            const autor = form.elements["comment"].autor;
+            const date = form.elements["quantity"].date;
+            const done = false;
+            if (id == 0)
+                createTask(title, description, autor, date, done);
+            else
+                editTask(id, title, description, autor, date, done);
+        });
+
+        // добавление 
+        async function createTask(taskTitle, taskDescription, taskAutor, taskDate, taskDone) {
+
+            const response = await fetch("api/products", {
+                method: "POST",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title: taskTitle,
+                    description: taskDescription,
+                    autor: taskAutor,
+                    date: taskDate,
+                    done: taskDone
+                })
+            });
+            if (response.ok === true) {
+                const product = await response.json();
+                reset();
+                // добавить смену страницы
+            }
+            else {
+                const error = await response.json();
+                console.log(error.message);
+            }
+        }
+    </script>
 </body>
 </html>
