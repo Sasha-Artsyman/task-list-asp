@@ -9,15 +9,15 @@
 </head>
 <body>
     <div id="header">
-        <button id="title" class="bblock"><p href="./index.html"><b>Task list</b></p></button>
-        <button id="add" class="bblock"><p href="./task.html">+ Add</p></button>
+        <button id="title" class="bblock"><a href="./index.html"><b>Task list</b></a></button>
+        <button id="add" class="bblock"><a href="./task.html">+ Add</a></button>
     </div>
     <form name="taskForm">
         <div id="inputForm">
             <input type="hidden" name="id" value="0" />
             <div id="mainText">
                 <div class="mb-3">
-                    <input id="input" class="form-control" name="title" placeholder="Title" />
+                    <input id="input" class="form-control" name="title" placeholder="Title" required />
                 </div>
                 <div class="mb-3">
                     <textarea id="inputTextarea" class="form-control" name="description" placeholder="Description"></textarea>
@@ -56,7 +56,7 @@
         // добавление 
         async function createTask(taskTitle, taskDescription, taskAutor, taskDate, taskDone) {
 
-            const response = await fetch("api/products", {
+            const response = await fetch("api/tasks", {
                 method: "POST",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -68,7 +68,7 @@
                 })
             });
             if (response.ok === true) {
-                const product = await response.json();
+                const task = await response.json();
                 reset();
                 // добавить смену страницы
             }
@@ -77,6 +77,38 @@
                 console.log(error.message);
             }
         }
+
+        // изменение
+        async function editTask(tasktId, taskTitle, taskDescription, taskAutor, taskDate, taskDone) {
+            const response = await fetch("api/tasks", {
+                method: "PUT",
+                headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    title: taskTitle,
+                    description: taskDescription,
+                    autor: taskAutor,
+                    date: taskDate,
+                    done: taskDone
+                })
+            });
+            if (response.ok === true) {
+                const task = await response.json();
+                reset();
+                // добавить смену страницы
+            }
+            else {
+                const error = await response.json();
+                console.log(error.message);
+            }
+        }
+
+        // сброс данных формы 
+        function reset() {
+            const form = document.forms["taskForm"];
+            form.reset();
+            form.elements["id"].value = 0;
+        }
+
     </script>
 </body>
 </html>
