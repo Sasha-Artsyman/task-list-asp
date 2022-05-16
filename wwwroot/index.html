@@ -66,9 +66,24 @@
             }
             div.setAttribute("id", task.id);
 
+            var buttonDelete = document.createElement("button");
+            buttonDelete.setAttribute("class", "elementDelete");
+            buttonDelete.textContent = "Delete";
+            buttonDelete.addEventListener("click", e => {
+                e.preventDefault();
+                deleteTask(task.id);
+            });
+            div.appendChild(buttonDelete);
+
             var divTitle = document.createElement("div");
             divTitle.setAttribute("class", "elementTitle");
-            divTitle.textContent = task.title;
+            var pTitle = document.createElement("p");
+            var aTitle = document.createElement("a");
+            aTitle.setAttribute("href", "./task.html?" + task.id);
+            aTitle.setAttribute("id", "aTitle");
+            aTitle.textContent = task.title;
+            pTitle.appendChild(aTitle);
+            divTitle.appendChild(pTitle);
             div.appendChild(divTitle);
 
             var divDescription = document.createElement("div");
@@ -76,14 +91,17 @@
             divDescription.textContent = task.description;
             div.appendChild(divDescription);
 
-            var divDelete = document.createElement("button");
-            divDelete.setAttribute("class", "elementdivDelete");
-            divDelete.textContent = "Delete";
-            divDelete.addEventListener("click", e => {
-                e.preventDefault();
-                deleteTask(task.id);
-            });
-            div.appendChild(divDelete);
+            var divOther = document.createElement("div");
+            divOther.setAttribute("class", "elementOther");
+            var divDate = document.createElement("div");
+            divDate.setAttribute("class", "elementDate");
+            divDate.textContent = task.dateOfCreation;
+            divOther.appendChild(divDate);
+            var divAutor = document.createElement("div");
+            divAutor.setAttribute("class", "elementAutor");
+            divAutor.textContent = task.autor;
+            divOther.appendChild(divAutor);
+            div.appendChild(divOther);
 
             return div;
         }
