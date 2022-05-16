@@ -96,17 +96,44 @@ body {
     font-size: 22px;
 }
 
+#aTitle {
+    opacity: 0.8;
+}
+
+    #aTitle:hover {
+        opacity: 1;
+    }
+
 .elementDescription {
     font-size: 16px;
+    margin-top: 1%;
+}
+
+.elementFalse .elementOther {
+    color: #878b8e;
+}
+
+.elementTrue .elementOther {
+    color: #bbb;
+}
+
+.elementOther {
     margin-top: 2%;
+    display: flex;
+    font-size: 12px;
+}
+
+.elementDate {
+    margin-right: 2%;
 }
 
 .elementFalse {
     background-color: #eee;
 }
 
-    .elementFalse .elementTitle {
+    .elementFalse #aTitle {
         color: #383c47;
+        text-decoration: none;
     }
 
     .elementFalse .elementDescription {
@@ -117,15 +144,16 @@ body {
     background-color: #878b8e;
 }
 
-    .elementTrue .elementTitle {
-        color: #eee;
+    .elementTrue #aTitle {
+        color: #eee !important;
+        text-decoration: none;
     }
 
     .elementTrue .elementDescription {
-        color: #bbb;
+        color: #bbb !important;
     }
 
-.elementdivDelete {
+.elementDelete {
     border: 0px;
     border-radius: 24px;
     padding: 4px 16px;
@@ -137,7 +165,7 @@ body {
     opacity: 0.8;
 }
 
-    .elementdivDelete:hover {
+    .elementDelete:hover {
         opacity: 1;
     }
 
