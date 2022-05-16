@@ -70,7 +70,7 @@
             if (response.ok === true) {
                 const task = await response.json();
                 reset();
-                // добавить смену страницы
+                document.location.href = "./index.html";
             }
             else {
                 const error = await response.json();
