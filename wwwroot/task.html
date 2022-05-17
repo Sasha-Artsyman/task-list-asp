@@ -43,9 +43,9 @@
             const form = document.forms["taskForm"];
             const id = form.elements["id"].value;
             const title = form.elements["title"].value;
-            const description = form.elements["description"].description;
-            const autor = form.elements["autor"].autor;
-            const date = form.elements["date"].date;
+            const description = form.elements["description"].value;
+            const autor = form.elements["autor"].value;
+            const date = form.elements["date"].value;
             const done = false;
             if (id == 0)
                 createTask(title, description, autor, date, done);
@@ -68,7 +68,6 @@
                 })
             });
             if (response.ok === true) {
-                const task = await response.json();
                 reset();
                 document.location.href = "./index.html";
             }
@@ -84,6 +83,7 @@
                 method: "PUT",
                 headers: { "Accept": "application/json", "Content-Type": "application/json" },
                 body: JSON.stringify({
+                    id: tasktId,
                     title: taskTitle,
                     description: taskDescription,
                     autor: taskAutor,
