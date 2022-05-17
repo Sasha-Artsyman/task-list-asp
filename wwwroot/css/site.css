@@ -92,12 +92,39 @@ body {
     padding: 16px;
 }
 
-.elementTitle {
-    font-size: 22px;
+.elementButtonDone {
+    border-radius: 8px;
+    width: 16px;
+    height: 16px;
+    margin-right: 2%;
+    opacity: 0.8;
+    border-style: dotted;
 }
+
+.elementTitle0 {
+    display: flex;
+    align-items: center;
+}
+
+    .elementTitle0 p {
+        margin-bottom: 0px;
+    }
+
+.elementFalse .elementButtonDone {
+    border-color: #383c47;
+}
+
+.elementTrue .elementButtonDone {
+    border-color: #eee;
+}
+
+    .elementFalse .elementButtonDone:hover, .elementTrue .elementButtonDone:hover {
+        opacity: 1;
+    }
 
 #aTitle {
     opacity: 0.8;
+    font-size: 22px;
 }
 
     #aTitle:hover {
@@ -106,7 +133,7 @@ body {
 
 .elementDescription {
     font-size: 16px;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .elementFalse .elementOther {
