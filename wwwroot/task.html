@@ -28,7 +28,7 @@
                     <input id="input" class="form-control" name="autor" placeholder="Autor" />
                 </div>
                 <div class="mb-3">
-                    <input id="input" type="date" class="form-control" name="dateOfCreation" placeholder="Date" />
+                    <input id="input" type="date" class="form-control" name="date" placeholder="Date" />
                 </div>
             </div>
             <div class="mb-3">
@@ -43,9 +43,9 @@
             const form = document.forms["taskForm"];
             const id = form.elements["id"].value;
             const title = form.elements["title"].value;
-            const description = form.elements["quantity"].description;
-            const autor = form.elements["comment"].autor;
-            const date = form.elements["quantity"].date;
+            const description = form.elements["description"].description;
+            const autor = form.elements["autor"].autor;
+            const date = form.elements["date"].date;
             const done = false;
             if (id == 0)
                 createTask(title, description, autor, date, done);
@@ -53,7 +53,7 @@
                 editTask(id, title, description, autor, date, done);
         });
 
-        // добавление 
+        // добавление
         async function createTask(taskTitle, taskDescription, taskAutor, taskDate, taskDone) {
 
             const response = await fetch("api/tasks", {
@@ -102,7 +102,7 @@
             }
         }
 
-        // сброс данных формы 
+        // сброс данных формы
         function reset() {
             const form = document.forms["taskForm"];
             form.reset();
