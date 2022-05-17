@@ -1,9 +1,10 @@
 // начальные данные
 List<AllTasks> tasks = new List<AllTasks>
 {
-    new() { Id = Guid.NewGuid().ToString(), Title = "Complete your to-do", Autor = "Admin", DateOfCreation = "01.01.2022", Description = "Complete my to-do list for today", Done = true},
-    new() { Id = Guid.NewGuid().ToString(), Title = "End project", Autor = "Admin", DateOfCreation = "01.01.2022", Description = "End project at 18:00", Done = false},
-    new() { Id = Guid.NewGuid().ToString(), Title = "Meeting", Autor = "Admin", DateOfCreation = "01.01.2022", Description = "Meetingmeeting at 18:30", Done = false}
+    new() { Id = Guid.NewGuid().ToString(), Title = "Complete your to-do", Autor = "Admin", Date = "01.01.2022", Description = "Complete my to-do list for today", Done = true},
+    new() { Id = Guid.NewGuid().ToString(), Title = "End project", Autor = "Admin", Date = "01.01.2022", Description = "End project at 18:00", Done = false},
+    new() { Id = Guid.NewGuid().ToString(), Title = "Meeting", Autor = "Admin", Date = "01.01.2022", Description = "Meetingmeeting at 18:30", Done = false},
+    new() { Id = Guid.NewGuid().ToString(), Title = "Send files", Autor = "Admin", Date = "02.01.2022", Description = "Send files to the customer and attach instructions and a description of the business process to it", Done = false}
 };
 
 var builder = WebApplication.CreateBuilder();
@@ -46,7 +47,7 @@ app.MapPut("/api/tasks", (AllTasks taskData) => {
 
     task.Title = taskData.Title;
     task.Autor = taskData.Autor;
-    task.DateOfCreation = taskData.DateOfCreation;
+    task.Date = taskData.Date;
     task.Description = taskData.Description;
     task.Done = taskData.Done;
     return Results.Json(task);
@@ -59,7 +60,7 @@ public class AllTasks
     public string Id { get; set; } = "";
     public string Title { get; set; } = "";
     public string Autor { get; set; } = "";
-    public string DateOfCreation { get; set; } = "";
+    public string Date { get; set; } = "";
     public string Description { get; set; } = "";
     public bool Done { get; set; } = false;
 }
