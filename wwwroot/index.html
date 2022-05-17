@@ -54,6 +54,51 @@
             }
         }
 
+        // отметка выполнения
+        async function doneTask(id) {
+            const response = await fetch("/api/tasks/" + id, {
+                method: "GET",
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok === true) {
+                const task = await response.json();
+                if (task.done === true)
+                    var taskDone0 = false;
+                else
+                    var taskDone0 = true;
+                const response0 = await fetch("api/tasks", {
+                    method: "PUT",
+                    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        id: task.id,
+                        title: task.title,
+                        description: task.description,
+                        autor: task.autor,
+                        date: task.date,
+                        done: taskDone0
+                    })
+                });
+                if (response0.ok === true) {
+                    reset();
+                }
+                else {
+                    const error = await response0.json();
+                    console.log(error.message);
+                }
+            }
+            else {
+                // если произошла ошибка, получаем сообщение об ошибке
+                const error = await response.json();
+                console.log(error.message); // и выводим его на консоль
+            }
+        }
+
+        function reset() {
+            const form = document.forms["taskForm"];
+            form.reset();
+        }
+
         // создание строки для таблицы
         function row(task) {
 
@@ -75,6 +120,15 @@
             });
             div.appendChild(buttonDelete);
 
+            var divTitle0 = document.createElement("div");
+            divTitle0.setAttribute("class", "elementTitle0");
+            var buttonDone = document.createElement("button");
+            buttonDone.setAttribute("class", "elementButtonDone");
+            buttonDone.textContent = "";
+            buttonDone.addEventListener("click", e => {
+                doneTask(task.id);
+            });
+            divTitle0.appendChild(buttonDone);
             var divTitle = document.createElement("div");
             divTitle.setAttribute("class", "elementTitle");
             var pTitle = document.createElement("p");
@@ -84,7 +138,8 @@
             aTitle.textContent = task.title;
             pTitle.appendChild(aTitle);
             divTitle.appendChild(pTitle);
-            div.appendChild(divTitle);
+            divTitle0.appendChild(pTitle);
+            div.appendChild(divTitle0);
 
             var divDescription = document.createElement("div");
             divDescription.setAttribute("class", "elementDescription");
