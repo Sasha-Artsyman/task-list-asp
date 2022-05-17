@@ -58,7 +58,7 @@ body {
 }
 
 #inputForm {
-    margin-top: 8%;
+    margin-top: 12%;
     margin-right: 24%;
     margin-left: 24%;
     color: #eee;
@@ -68,7 +68,7 @@ body {
     border-radius: 8px;
     margin-top: 4px;
     box-shadow: 0 0 12px #383c47;
-    padding: 8px;
+    padding: 12px;
     color: #383c47;
     background-color: #eee;
     border: 0px;
@@ -80,6 +80,9 @@ body {
 
 #mainText {
     margin-bottom: 32px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }
 
 #otherText {
